@@ -1,10 +1,15 @@
 # Definition for singly-linked list.
-# class ListNode:
+# class ListNode(object):
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-class Solution:
-    def mergeTwoLists(self, list1: ListNode, list2: ListNode) ->ListNode:
+class Solution(object):
+    def mergeTwoLists(self, list1, list2):
+        """
+        :type list1: Optional[ListNode]
+        :type list2: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
         dummy = ListNode()
         tail = dummy
 
@@ -16,7 +21,8 @@ class Solution:
                 tail.next = list2
                 list2 = list2.next
             tail = tail.next
-        if list1:
+
+        if list1:  # 만약 list1의 요소가 남았을경우 모두 tail에 연결
             tail.next = list1
         else:
             tail.next = list2
